@@ -1,0 +1,29 @@
+.avatar {
+	width: 260px;
+	height: 280px;
+	position: relative;
+}
+
+.text-center {
+	margin: 5px 0;
+	text-align: center;
+}
+
+.button {
+	background-color: #ca5119;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 0 10px;
+    padding: 10px;
+    text-transform: uppercase;
+	
+}
+
+.button:hover {
+	transition-duration: 0.2s;
+	background-color: #8b3710;
+}
+

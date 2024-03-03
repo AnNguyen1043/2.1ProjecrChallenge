@@ -1,0 +1,38 @@
+.list {
+    background-color: rgba(255,166,0,.4);
+    border: 5px solid orange;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+.img-center {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.selected {
+	background-color: rgba(116, 116, 255, 0.315);
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.square {
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.151);
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 50px;
+}
+
+.square:hover {
+	background-color: #BA704F;
+	transition-duration: 0.2s;
+}
