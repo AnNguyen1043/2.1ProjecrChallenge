@@ -39,10 +39,7 @@ function App() {
   const [clothing3, setClothing3] = useState(1)
 
   const [noses, setNoses] = useState(1)
-  const [facial, setFacial] = useState(1)
-  const [earrings, setEarrings] = useState(1)
-  const [hats, setHats] = useState(1)
-  const [neckwears, setNeckwears] = useState(1)
+
 
   function randomise () {
     setBody(Math.floor(Math.random() * partNum.body));
