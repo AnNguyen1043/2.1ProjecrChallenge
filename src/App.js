@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Avatar from './components/Avatar'
 import PartsList from './components/PartsList';
+import Parts from './components/Parts';
+import { genBodyImgPaths, partNum } from './constains/avatar-metadata';
 
-const partNum = {
-  body: 17,
-  eyes: 17,
-  hair: 73,
-  mouths: 24,
-  eyebrows: 15,
-  glasses: 17,
+const randomPath = (partName, partNum) => {
+  return `./character/${partName}/${Math.floor(Math.random() * partNum) + 1}.png`
+}
 
-  clothing1: 5,
-  clothing2: 5,
-  clothing3: 9,
-
-  noses: 1,
-  facial: 17,
-  earrings: 32,
-  hats: 28,
-  neckwears: 18
-
-};
-
-
+const randomAvatar = () => {
+  return {
+    body: randomPath('body', partNum.body),
+    // eyes: Math.floor(Math.random() * partNum.eyes),
+    // hair: Math.floor(Math.random() * partNum.hair),
+    // mouth: Math.floor(Math.random() * partNum.mouths),
+    // eyebrow: Math.floor(Math.random() * partNum.eyebrows),
+    // glasses: Math.floor(Math.random() * partNum.glasses),
+    // clothing1: Math.floor(Math.random() * partNum.clothing1),
+    // clothing2: Math.floor(Math.random() * partNum.clothing2),
+    // clothing3: Math.floor(Math.random() * partNum.clothing3),
+    nose: 1
+  }
+}
 
 function App() {
-  const [body, setBody] = useState(1)
+  // const [body, setBody] = useState(1)
   const [eyes, setEyes] = useState(1)
   const [hair, setHair] = useState(1)
 
@@ -39,22 +38,14 @@ function App() {
   const [clothing3, setClothing3] = useState(1)
 
   const [noses, setNoses] = useState(1)
+  const [avatar, setAvatar] = useState(randomAvatar)
 
-  const [avatar, setAvatar] = useState({
-    body: 1,
-    eyes: 1,
-    hair: 1,
+  const bodyListImgs = genBodyImgPaths(partNum.body);
 
-    mouth: 1,
-    eyebrow: 1,
-    glasses: 1,
 
-    clothing1: 1,
-    clothing2: 1,
-    clothing3: 1,
+  console.log(`avatar : `, avatar);
 
-    nose: 1
-  })
+
 
   const onChangeAvatar = (fileName) => {
     return (fieldValue) => setAvatar(prev => ({ ...prev, [fileName]: fieldValue }))
@@ -80,24 +71,9 @@ function App() {
     // setEyebrows(Math.floor(Math.random() * partNum.eyebrows));
     // setGlasses(Math.floor(Math.random() * partNum.glasses));
 
-    setAvatar({
-      body: Math.floor(Math.random() * partNum.body),
-      eyes: Math.floor(Math.random() * partNum.eyes),
-      hair: Math.floor(Math.random() * partNum.hair),
-      mouth: Math.floor(Math.random() * partNum.mouths),
-      eyebrow: Math.floor(Math.random() * partNum.eyebrows),
-      glasses: Math.floor(Math.random() * partNum.glasses),
-      clothing1: Math.floor(Math.random() * partNum.clothing1),
-      clothing2: Math.floor(Math.random() * partNum.clothing2),
-      clothing3: Math.floor(Math.random() * partNum.clothing3),
-      nose: 1
-    })
+    setAvatar()
 
   }
-
-  useEffect(() => {
-    randomise()
-  }, [])
 
   return (
     <div className="App">
@@ -129,12 +105,26 @@ function App() {
         <div>
           <div className="list-section">
             <h2>Body</h2>
-            <PartsList
-              partNum={partNum.body}
-              path="body"
-              // set={(id) => setAvatar(prev => ({ ...prev, body: id }))}
-              set={onBodyChange}//. Gen: (id) => setAvatar(prev => ({ ...prev, body: id }))}
-              selected={body} />
+            <PartsList>
+              {bodyListImgs.map((path, i) => {
+
+                return <Parts key={path + i}
+                  onClick={() => onBodyChange(path)}
+                  src={path}
+                  className={avatar.body === path ? 'selected clickable square' : 'clickable square'}
+                  index={i + 1}
+                  style={{
+                    height: 50,
+                    width: 50,
+                    position: "relative",
+                    objectFit: "cover",
+                    backgroundPosition: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }} />
+              })}
+            </PartsList>
           </div>
 
           <div className="list-section">

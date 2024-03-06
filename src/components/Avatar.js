@@ -8,8 +8,8 @@ function Avatar({ body, mouth, eyes, hair, nose, eyebrow, glasses, clothing1, cl
   return (
     <div>
       <div className='avatar'>
-        <Parts width={260} style={{ position: "absolute" }} partName={'body'} index={body} zIndex={1}></Parts>
-        <Parts width={260} style={{ position: "absolute" }} partName={'eyes'} index={eyes} zIndex={3}></Parts>
+        <Parts src={body} className="avatar" width={260} style={{ position: "absolute" }} zIndex={1}></Parts>
+        {/* <Parts width={260} style={{ position: "absolute" }} partName={'eyes'} index={eyes} zIndex={3}></Parts>
         <Parts width={260} style={{ position: "absolute" }} partName={'hair'} index={hair} zIndex={3}></Parts>
         <Parts width={260} style={{ position: "absolute" }} partName={'noses'} index={nose} zIndex={3}></Parts>
         <Parts width={260} style={{ position: "absolute" }} partName={'mouths'} index={mouth} zIndex={3}></Parts>
@@ -18,7 +18,7 @@ function Avatar({ body, mouth, eyes, hair, nose, eyebrow, glasses, clothing1, cl
 
         <Parts width={260} style={{ position: "absolute" }} partName={'clothes/layer_1'} index={clothing1} zIndex={2}></Parts>
         <Parts width={260} style={{ position: "absolute" }} partName={'clothes/layer_2'} index={clothing2} zIndex={2}></Parts>
-        <Parts width={260} style={{ position: "absolute" }} partName={'clothes/layer_3'} index={clothing3} zIndex={2}></Parts>
+        <Parts width={260} style={{ position: "absolute" }} partName={'clothes/layer_3'} index={clothing3} zIndex={2}></Parts> */}
 
         {/*
         <Parts partName={'noses'} index={nose} zIndex={3}></Parts>
