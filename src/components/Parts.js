@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Parts({partName, index, zIndex}) {
+//clxs for class merge
+
+function Parts({ partName, index, zIndex = 1, width, style, className }) {
   return (
-    <img src={`./character/${partName}/${index}.png`} width={260} alt='' id='body' style={{zIndex, position: 'absolute', left: 0, top: 0}}/>
+    <img
+      className={[className].join(' ')}
+      src={`./character/${partName}/${index}.png`}
+      width={width}
+      alt='' id='body'
+      style={{ zIndex, left: 0, top: 0, ...style }} />
   )
 }
 
